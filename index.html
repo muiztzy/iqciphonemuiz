@@ -2,103 +2,200 @@
 <html lang="id">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width,initial-scale=1.0">
-<meta name="theme-color" content="#030811">
-<title>ALL TOOLS MUIZ</title>
+<meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1">
+<title>ALL TOOLS MUIZ — IQC & BRAT</title>
 <style>
-*{box-sizing:border-box;margin:0;padding:0;font-family:-apple-system,BlinkMacSystemFont,"SF Pro Display","Segoe UI",sans-serif}
-body{min-height:100vh;color:#fff;background:radial-gradient(circle at 50% -15%,#0756a8 0,#06264b 20%,transparent 48%),#03070d}
-.app{width:100%;max-width:520px;min-height:100vh;margin:auto;padding-bottom:40px}
-.top{padding:15px}.menu{display:flex;justify-content:space-between;align-items:center;margin-bottom:14px}
-.menu-btn{width:42px;height:42px;border:1px solid #173858;background:#07111e;border-radius:15px;display:flex;align-items:center;justify-content:center;color:#42aaff;font-size:20px}
-.title{font-size:12px;color:#91a4b9;letter-spacing:1px}
-.hero{position:relative;height:205px;border-radius:27px;overflow:hidden;border:1px solid #174875;background:radial-gradient(circle at 72% 40%,#168cff 0,transparent 27%),radial-gradient(circle at 20% 90%,#004b9c 0,transparent 35%),linear-gradient(135deg,#020711,#071a31 55%,#02060d);box-shadow:0 15px 45px rgba(0,80,180,.22),inset 0 0 45px rgba(0,132,255,.12)}
-.hero:before{content:"";position:absolute;width:230px;height:230px;border:1px solid rgba(65,170,255,.25);border-radius:50%;right:-55px;top:-70px;box-shadow:0 0 0 25px rgba(40,150,255,.05),0 0 0 55px rgba(40,150,255,.03)}
-.hero:after{content:"";position:absolute;width:150%;height:1px;background:linear-gradient(90deg,transparent,#168cff,transparent);transform:rotate(-20deg);top:80px;left:-20%;opacity:.7}
-.hero-content{position:absolute;z-index:2;left:20px;bottom:20px}.hero-small{color:#64b7ff;font-size:11px;letter-spacing:2px;margin-bottom:7px}
-.hero h1{font-size:28px;letter-spacing:-1px}.hero p{color:#8da3b8;font-size:11px;margin-top:5px}
-.profile{margin-top:-1px;padding:15px;border-radius:0 0 25px 25px;background:linear-gradient(180deg,rgba(7,16,28,.95),rgba(4,9,16,.98));border:1px solid #112b45}
-.profile-row{display:flex;gap:12px;align-items:center}.avatar{width:55px;height:55px;flex:none;border-radius:18px;background:linear-gradient(135deg,#087df0,#21b8ff);display:flex;align-items:center;justify-content:center;font-weight:800;font-size:22px;box-shadow:0 0 25px rgba(0,136,255,.3)}
-.profile-name{font-size:16px;font-weight:700}.online{color:#27df83;font-size:11px;margin-top:4px}
-.info{display:grid;grid-template-columns:1fr 1fr;gap:7px;margin-top:14px}.info-box{background:#07111d;border:1px solid #10283f;border-radius:12px;padding:9px;color:#8298ad;font-size:10px}.info-box b{color:#e8f4ff;font-size:11px}
-.tabs{display:flex;gap:7px;overflow-x:auto;padding:15px;scrollbar-width:none}.tabs::-webkit-scrollbar{display:none}
-.tab{flex:none;border:1px solid #10283f;background:#07101c;color:#91a5ba;padding:12px 18px;border-radius:17px;font-size:12px;cursor:pointer}.tab.active{background:linear-gradient(135deg,#087df0,#0757ad);border-color:#168cff;color:white;box-shadow:0 8px 25px rgba(0,110,255,.22)}
-.search{margin:0 15px 15px;width:calc(100% - 30px);height:48px;border-radius:16px;background:#07101a;border:1px solid #15324c;outline:none;padding:0 16px;color:white}.search:focus{border-color:#168cff;box-shadow:0 0 0 3px rgba(22,140,255,.1)}
-.heading{padding:0 15px 13px;font-size:20px;font-weight:700}.heading span{color:#168cff}
-.grid{display:grid;grid-template-columns:repeat(2,1fr);gap:12px;padding:0 15px}
-.tool{min-height:205px;padding:18px 15px;border-radius:23px;background:linear-gradient(145deg,rgba(11,24,39,.98),rgba(4,9,15,.98));border:1px solid #12304b;box-shadow:0 12px 35px rgba(0,0,0,.22);transition:.18s;cursor:pointer}.tool:active{transform:scale(.96)}
-.tool-icon{width:48px;height:48px;border-radius:16px;display:flex;align-items:center;justify-content:center;background:linear-gradient(135deg,#087df0,#073c75);font-size:23px;margin-bottom:16px;box-shadow:0 7px 20px rgba(0,115,255,.2)}
-.tool h3{font-size:15px;margin-bottom:7px}.tool p{color:#8294a7;line-height:1.45;font-size:11px;min-height:34px}.tool-btn{display:inline-block;margin-top:15px;color:#55b1ff;font-size:10px;font-weight:700;text-transform:uppercase;letter-spacing:.5px}
-.page{display:none;padding:15px}.page.active{display:block}.back{border:1px solid #173957;background:#07111d;color:#50b0ff;padding:11px 16px;border-radius:14px;cursor:pointer;margin-bottom:18px}.page-title{font-size:24px;margin-bottom:14px}
-.card{background:#07101a;border:1px solid #14324c;border-radius:23px;padding:18px}label{display:block;color:#91a5b8;font-size:12px;margin:12px 0 7px}
-input,textarea{width:100%;border:1px solid #183954;background:#03070c;color:#fff;border-radius:14px;padding:13px;outline:none}textarea{min-height:120px;resize:vertical}
-.primary{width:100%;margin-top:13px;padding:14px;border:0;border-radius:15px;color:white;font-weight:700;background:linear-gradient(135deg,#087df0,#0758b4);cursor:pointer}
-.result{margin-top:15px;padding:15px;background:#03070c;border:1px solid #17334c;border-radius:16px;word-break:break-word}
-.iqc{background:#000;border-radius:22px;padding:15px}.iqc-head{display:flex;gap:10px;align-items:center;margin-bottom:18px}.iqc-avatar{width:42px;height:42px;border-radius:50%;display:flex;align-items:center;justify-content:center;background:#168cff;font-weight:bold}.iqc-sub{color:#777;font-size:10px}.bubble{margin-left:auto;max-width:85%;background:#168cff;padding:11px 14px;border-radius:18px 18px 5px 18px;line-height:1.4;font-size:13px}.iqc-time{color:#cce8ff;font-size:9px;text-align:right;margin-top:5px}
-canvas{max-width:100%;border-radius:16px}footer{padding:35px 15px 15px;text-align:center;color:#506176;font-size:10px}
-@media(max-width:360px){.grid{gap:8px}.tool{padding:14px 11px}.hero{height:185px}}
+*{box-sizing:border-box}
+body{margin:0;background:#05070b;color:#fff;font-family:-apple-system,BlinkMacSystemFont,"SF Pro Display","Segoe UI",sans-serif}
+button,input,textarea{font:inherit}
+.wrap{max-width:520px;margin:auto;min-height:100vh;padding:16px}
+h1{font-size:24px;margin:4px 0 5px}.sub{color:#8e9aab;font-size:13px;margin-bottom:16px}
+.tabs{display:flex;gap:8px;margin-bottom:14px}
+.tab{flex:1;border:1px solid #17243b;background:#0a101b;color:#8fa5c4;padding:12px;border-radius:14px;font-weight:700}
+.tab.active{background:#0d67ff;color:#fff;border-color:#1680ff}
+.card{background:#0a0f18;border:1px solid #16233a;border-radius:18px;padding:14px;margin-bottom:14px}
+label{display:block;font-size:12px;color:#8d9bb0;margin:9px 0 6px}
+input,textarea{width:100%;border:1px solid #1b2a42;background:#070b12;color:#fff;border-radius:11px;padding:11px;outline:none}
+textarea{resize:vertical;min-height:75px}
+.row{display:flex;gap:8px}.row>*{flex:1}
+.btn{border:0;border-radius:12px;padding:11px 13px;background:#0d67ff;color:white;font-weight:700;cursor:pointer}
+.btn.secondary{background:#121a27;color:#d8e2f2;border:1px solid #22314a}
+.btn.danger{background:#39201f;color:#ff765e}
+.preview{background:#020305;border-radius:18px;overflow:hidden;border:1px solid #1a2434;position:relative}
+#iqcCanvas{display:block;width:100%;height:auto;background:#05070a}
+.tools{display:flex;gap:8px;flex-wrap:wrap;margin-top:10px}
+.small{font-size:11px;color:#738198;line-height:1.4}
+.hidden{display:none}
+.file{padding:9px;background:#070b12;border:1px dashed #263750;border-radius:11px;color:#8fa0b7;font-size:12px}
 </style>
 </head>
 <body>
-<div class="app">
-<section id="home" class="page active" style="display:block">
-<div class="top">
-<div class="menu"><div class="menu-btn">☰</div><div class="title">ALL TOOLS • V1.0</div><div class="menu-btn">⚙</div></div>
-<div class="hero"><div class="hero-content"><div class="hero-small">⚡ DIGITAL UTILITY</div><h1>ALL TOOLS <span style="color:#168cff">MUIZ</span></h1><p>Everything you need in one place.</p></div></div>
-<div class="profile"><div class="profile-row"><div class="avatar">M</div><div><div class="profile-name">ALL TOOLS MUIZ</div><div class="online">● Online</div></div></div>
-<div class="info"><div class="info-box">🌐 NEGARA<br><b>🇮🇩 Indonesia</b></div><div class="info-box">📱 DEVICE<br><b id="device">Android</b></div><div class="info-box">🌍 BROWSER<br><b id="browser">Chrome</b></div><div class="info-box">⚡ STATUS<br><b style="color:#24dd83">● Online</b></div></div></div>
-</div>
-<div class="tabs"><button class="tab active" onclick="filterCategory('all',this)">▦ &nbsp; All</button><button class="tab" onclick="filterCategory('download',this)">↓ &nbsp; Downloader</button><button class="tab" onclick="filterCategory('maker',this)">✣ &nbsp; Maker</button><button class="tab" onclick="filterCategory('tools',this)">⚒ &nbsp; Tools</button></div>
-<input class="search" id="search" placeholder="🔍  Search tools..." oninput="searchTools()">
-<div class="heading">Semua <span>Tools</span></div>
-<div class="grid">
-<div class="tool maker" data-name="iqc iphone chat" onclick="openTool('iqcPage')"><div class="tool-icon">📱</div><h3>IQC iPhone</h3><p>Buat tampilan chat bergaya iPhone.</p><div class="tool-btn">OPEN →</div></div>
-<div class="tool maker" data-name="sticker maker stiker" onclick="openTool('stickerPage')"><div class="tool-icon">🖼️</div><h3>Sticker Maker</h3><p>Buat sticker dari gambar langsung dari HP.</p><div class="tool-btn">MAKER →</div></div>
-<div class="tool maker" data-name="text sticker text maker" onclick="openTool('textPage')"><div class="tool-icon">Aa</div><h3>Text Sticker</h3><p>Buat teks dengan outline seperti sticker.</p><div class="tool-btn">CREATE →</div></div>
-<div class="tool tools" data-name="qr qris generator" onclick="openTool('qrPage')"><div class="tool-icon">▦</div><h3>QR Generator</h3><p>Buat QR dari teks, link atau informasi.</p><div class="tool-btn">GENERATE →</div></div>
-<div class="tool tools" data-name="calculator kalkulator" onclick="openTool('calcPage')"><div class="tool-icon">🧮</div><h3>Kalkulator</h3><p>Hitung operasi matematika dengan cepat.</p><div class="tool-btn">CALCULATE →</div></div>
-<div class="tool tools" data-name="base64 encoder decoder" onclick="openTool('basePage')"><div class="tool-icon">🔐</div><h3>Base64</h3><p>Encode dan decode teks secara cepat.</p><div class="tool-btn">OPEN →</div></div>
-<div class="tool tools" data-name="json formatter developer" onclick="openTool('jsonPage')"><div class="tool-icon">{ }</div><h3>JSON Formatter</h3><p>Rapikan JSON agar lebih mudah dibaca.</p><div class="tool-btn">FORMAT →</div></div>
-<div class="tool tools" data-name="random angka generator" onclick="openTool('randomPage')"><div class="tool-icon">🎲</div><h3>Random Generator</h3><p>Generate angka random sesuai range.</p><div class="tool-btn">GENERATE →</div></div>
-<div class="tool download" data-name="media downloader tiktok instagram youtube" onclick="openTool('downloadPage')"><div class="tool-icon">☁</div><h3>Media Downloader</h3><p>TikTok, Instagram, YouTube dan platform lainnya.</p><div class="tool-btn">MEDIA →</div></div>
-<div class="tool download" data-name="url downloader link" onclick="openTool('downloadPage')"><div class="tool-icon">↗</div><h3>URL Tools</h3><p>Tools untuk memproses URL dan link.</p><div class="tool-btn">OPEN →</div></div>
-</div>
-<footer>ALL TOOLS MUIZ<br>Black × Blue Edition</footer>
-</section>
+<div class="wrap">
+  <h1>ALL TOOLS MUIZ</h1>
+  <div class="sub">IQC iPhone • BRAT Sticker</div>
 
-<section id="iqcPage" class="page"><button class="back" onclick="home()">‹ Back</button><div class="page-title">📱 IQC iPhone</div><div class="card"><label>Nama</label><input id="iqcName" value="Muiz"><label>Pesan</label><textarea id="iqcMessage">Halo! Ini pesan dari All Tools 👋</textarea><button class="primary" onclick="generateIQC()">Generate IQC</button><div class="result" id="iqcResult"></div></div></section>
-<section id="stickerPage" class="page"><button class="back" onclick="home()">‹ Back</button><div class="page-title">🖼️ Sticker Maker</div><div class="card"><label>Pilih gambar</label><input type="file" id="stickerInput" accept="image/*"><br><canvas id="stickerCanvas" width="600" height="600"></canvas><button class="primary" onclick="downloadSticker()">Download PNG</button></div></section>
-<section id="textPage" class="page"><button class="back" onclick="home()">‹ Back</button><div class="page-title">🔤 Text Sticker</div><div class="card"><label>Teks</label><input id="textInput" value="ALL TOOLS MUIZ"><label>Ukuran</label><input id="textSize" type="number" value="75"><button class="primary" onclick="makeText()">Generate</button><br><br><canvas id="textCanvas" width="900" height="300"></canvas><button class="primary" onclick="downloadText()">Download</button></div></section>
-<section id="qrPage" class="page"><button class="back" onclick="home()">‹ Back</button><div class="page-title">▦ QR Generator</div><div class="card"><label>Text / Link</label><input id="qrInput" placeholder="https://example.com" value="https://example.com"><button class="primary" onclick="makeQR()">Generate QR</button><div class="result" style="text-align:center"><img id="qrImage" style="max-width:100%;border-radius:15px"></div></div></section>
-<section id="calcPage" class="page"><button class="back" onclick="home()">‹ Back</button><div class="page-title">🧮 Kalkulator</div><div class="card"><input id="calc" placeholder="25*4+10"><button class="primary" onclick="calculate()">Hitung</button><div class="result" id="calcResult">Hasil muncul di sini</div></div></section>
-<section id="basePage" class="page"><button class="back" onclick="home()">‹ Back</button><div class="page-title">🔐 Base64</div><div class="card"><textarea id="baseInput">ALL TOOLS MUIZ</textarea><button class="primary" onclick="encodeBase()">Encode</button><button class="primary" onclick="decodeBase()">Decode</button><div class="result" id="baseResult">-</div></div></section>
-<section id="jsonPage" class="page"><button class="back" onclick="home()">‹ Back</button><div class="page-title">{ } JSON Formatter</div><div class="card"><textarea id="jsonInput">{"name":"ALL TOOLS MUIZ","version":"1.0"}</textarea><button class="primary" onclick="formatJSON()">Format JSON</button><div class="result"><pre id="jsonResult"></pre></div></div></section>
-<section id="randomPage" class="page"><button class="back" onclick="home()">‹ Back</button><div class="page-title">🎲 Random Generator</div><div class="card"><label>Minimum</label><input id="min" type="number" value="1"><label>Maximum</label><input id="max" type="number" value="100"><button class="primary" onclick="randomNumber()">Generate</button><div class="result" id="randomResult">-</div></div></section>
-<section id="downloadPage" class="page"><button class="back" onclick="home()">‹ Back</button><div class="page-title">☁ Media Downloader</div><div class="card"><label>URL Media</label><input id="mediaURL" placeholder="Tempel link di sini..."><button class="primary" onclick="downloadInfo()">Process URL</button><div class="result" id="downloadResult">Masukkan URL untuk memproses media.<br><br><span style="color:#587087;font-size:11px">Downloader sungguhan membutuhkan API/backend.</span></div></div></section>
+  <div class="tabs">
+    <button class="tab active" id="tabIqc">IQC iPhone</button>
+    <button class="tab" id="tabBrat">BRAT Sticker</button>
+  </div>
+
+  <section id="iqc">
+    <div class="card">
+      <div class="row">
+        <div><label>Nama</label><input id="name" value="MuizTzy"></div>
+        <div><label>Jam</label><input id="time" value="19:23"></div>
+      </div>
+      <label>Pesan</label>
+      <textarea id="msg">Di sana pusing pacaran, di sini pusing codingan.</textarea>
+      <label>Foto profil</label>
+      <input class="file" id="avatar" type="file" accept="image/*">
+      <div class="tools">
+        <button class="btn" id="makeIqc">Buat IQC</button>
+        <button class="btn secondary" id="downloadIqc">Download PNG</button>
+      </div>
+      <div class="small" style="margin-top:8px">Hasil dibuat sebagai gambar PNG. Tekan tombol download setelah preview muncul.</div>
+    </div>
+
+    <div class="preview"><canvas id="iqcCanvas" width="900" height="1600"></canvas></div>
+  </section>
+
+  <section id="brat" class="hidden">
+    <div class="card">
+      <label>Teks BRAT</label>
+      <textarea id="bratText">brat</textarea>
+      <div class="row">
+        <div><label>Ukuran teks</label><input id="bratSize" type="number" min="20" max="180" value="70"></div>
+        <div><label>Rotasi</label><input id="bratRotate" type="number" min="-30" max="30" value="-2"></div>
+      </div>
+      <label>Warna teks</label>
+      <input id="bratColor" type="color" value="#111111">
+      <div class="tools">
+        <button class="btn" id="makeBrat">Buat BRAT</button>
+        <button class="btn secondary" id="downloadBrat">Download PNG</button>
+      </div>
+    </div>
+    <div class="preview"><canvas id="bratCanvas" width="1000" height="1000"></canvas></div>
+  </section>
 </div>
+
 <script>
-const ua=navigator.userAgent;
-document.getElementById("device").textContent=/Android/i.test(ua)?"Android":/iPhone|iPad/i.test(ua)?"iPhone/iPad":"Desktop";
-document.getElementById("browser").textContent=/Chrome/i.test(ua)?"Chrome":/Firefox/i.test(ua)?"Firefox":/Safari/i.test(ua)?"Safari":"Browser";
-function openTool(id){document.querySelectorAll(".page").forEach(x=>x.classList.remove("active"));document.getElementById(id).classList.add("active");window.scrollTo(0,0)}
-function home(){document.querySelectorAll(".page").forEach(x=>x.classList.remove("active"));document.getElementById("home").classList.add("active");window.scrollTo(0,0)}
-function filterCategory(type,button){document.querySelectorAll(".tab").forEach(x=>x.classList.remove("active"));button.classList.add("active");document.querySelectorAll(".tool").forEach(tool=>tool.style.display=type==="all"||tool.classList.contains(type)?"":"none")}
-function searchTools(){const q=document.getElementById("search").value.toLowerCase();document.querySelectorAll(".tool").forEach(t=>t.style.display=t.dataset.name.includes(q)?"":"none")}
-function escapeHTML(s){return String(s).replace(/&/g,"&amp;").replace(/</g,"&lt;").replace(/>/g,"&gt;").replace(/"/g,"&quot;").replace(/'/g,"&#039;")}
-function generateIQC(){const n=document.getElementById("iqcName").value,m=document.getElementById("iqcMessage").value;document.getElementById("iqcResult").innerHTML=`<div class="iqc"><div class="iqc-head"><div class="iqc-avatar">${escapeHTML(n.charAt(0).toUpperCase()||"M")}</div><div><b>${escapeHTML(n)}</b><div class="iqc-sub">iPhone</div></div></div><div class="bubble">${escapeHTML(m)}<div class="iqc-time">Delivered • Now</div></div></div>`}
-const stickerInput=document.getElementById("stickerInput"),stickerCanvas=document.getElementById("stickerCanvas");
-stickerInput.addEventListener("change",function(){const f=this.files[0];if(!f)return;const img=new Image();img.onload=function(){const c=stickerCanvas.getContext("2d");c.clearRect(0,0,600,600);c.fillStyle="#fff";c.fillRect(0,0,600,600);const s=Math.min(520/img.width,520/img.height),w=img.width*s,h=img.height*s;c.drawImage(img,(600-w)/2,(600-h)/2,w,h)};img.src=URL.createObjectURL(f)});
-function downloadSticker(){const a=document.createElement("a");a.download="all-tools-muiz-sticker.png";a.href=stickerCanvas.toDataURL("image/png");a.click()}
-function makeText(){const t=document.getElementById("textInput").value,s=Number(document.getElementById("textSize").value),c=document.getElementById("textCanvas"),x=c.getContext("2d");x.clearRect(0,0,900,300);x.textAlign="center";x.textBaseline="middle";x.font=`900 ${s}px Arial`;x.lineWidth=25;x.strokeStyle="white";x.strokeText(t,450,150);x.fillStyle="#168cff";x.fillText(t,450,150)}
-function downloadText(){const a=document.createElement("a");a.download="all-tools-muiz-text.png";a.href=document.getElementById("textCanvas").toDataURL("image/png");a.click()}
-function makeQR(){const t=document.getElementById("qrInput").value;document.getElementById("qrImage").src="https://api.qrserver.com/v1/create-qr-code/?size=400x400&data="+encodeURIComponent(t)}
-function calculate(){const v=document.getElementById("calc").value;try{if(!/^[0-9+\-*/(). %]+$/.test(v))throw 0;document.getElementById("calcResult").textContent=Function('"use strict";return ('+v+')')()}catch{document.getElementById("calcResult").textContent="Input tidak valid."}}
-function encodeBase(){document.getElementById("baseResult").textContent=btoa(unescape(encodeURIComponent(document.getElementById("baseInput").value)))}
-function decodeBase(){try{document.getElementById("baseResult").textContent=decodeURIComponent(escape(atob(document.getElementById("baseInput").value)))}catch{document.getElementById("baseResult").textContent="Base64 tidak valid."}}
-function formatJSON(){try{document.getElementById("jsonResult").textContent=JSON.stringify(JSON.parse(document.getElementById("jsonInput").value),null,2)}catch{document.getElementById("jsonResult").textContent="JSON tidak valid."}}
-function randomNumber(){const a=Number(document.getElementById("min").value),b=Number(document.getElementById("max").value);document.getElementById("randomResult").textContent=a>b?"Minimum harus lebih kecil.":Math.floor(Math.random()*(b-a+1))+a}
-function downloadInfo(){const u=document.getElementById("mediaURL").value.trim();document.getElementById("downloadResult").innerHTML=u?"<b>URL diterima ✓</b><br><br><span style='color:#7890a5;font-size:11px'>Sambungkan API/backend untuk downloader sungguhan.</span>":"⚠️ Masukkan URL terlebih dahulu."}
-generateIQC();
+const $=id=>document.getElementById(id);
+const iqc=$('iqcCanvas'), ictx=iqc.getContext('2d');
+let avatarImg=null;
+
+$('avatar').addEventListener('change',e=>{
+  const f=e.target.files[0]; if(!f)return;
+  const img=new Image();
+  img.onload=()=>{avatarImg=img;drawIQC()};
+  img.src=URL.createObjectURL(f);
+});
+
+function roundRect(ctx,x,y,w,h,r){
+  r=Math.min(r,w/2,h/2);ctx.beginPath();
+  ctx.moveTo(x+r,y);ctx.arcTo(x+w,y,x+w,y+h,r);
+  ctx.arcTo(x+w,y+h,x,y+h,r);ctx.arcTo(x,y+h,x,y,r);
+  ctx.arcTo(x,y,x+w,y,r);ctx.closePath();
+}
+function wrapText(ctx,text,x,y,maxWidth,lineHeight){
+  const words=text.split(/\s+/);let line='',lines=[];
+  for(const word of words){
+    const test=line?line+' '+word:word;
+    if(ctx.measureText(test).width>maxWidth&&line){lines.push(line);line=word}else line=test;
+  }
+  if(line)lines.push(line);
+  lines.forEach((l,i)=>ctx.fillText(l,x,y+i*lineHeight));
+  return lines.length;
+}
+function drawAvatar(ctx,x,y,size){
+  ctx.save();ctx.beginPath();ctx.arc(x+size/2,y+size/2,size/2,0,Math.PI*2);ctx.clip();
+  if(avatarImg)ctx.drawImage(avatarImg,x,y,size,size);
+  else{ctx.fillStyle='#44515f';ctx.fillRect(x,y,size,size);ctx.fillStyle='#dbe6f2';ctx.font='bold 55px Arial';ctx.textAlign='center';ctx.fillText('M',x+size/2,y+size/2+19)}
+  ctx.restore();
+}
+function drawIQC(){
+  const ctx=ictx,W=iqc.width,H=iqc.height;
+  ctx.clearRect(0,0,W,H);ctx.fillStyle='#05070a';ctx.fillRect(0,0,W,H);
+
+  // status bar
+  ctx.fillStyle='#000';ctx.fillRect(0,0,W,86);
+  ctx.fillStyle='#fff';ctx.font='bold 29px Arial';ctx.textAlign='left';ctx.fillText($('time').value||'21:36',38,52);
+  ctx.font='bold 22px Arial';ctx.fillText('⌁',170,51);ctx.fillText('•••',210,51);
+  ctx.textAlign='right';ctx.fillText('▮▮▮  ◉  51',860,52);
+
+  // blurred chat background
+  ctx.save();ctx.globalAlpha=.5;
+  for(let i=0;i<7;i++){
+    ctx.fillStyle=i%2?'#073b3b':'#20252d';
+    const x=i%2?500:25,y=150+i*175,w=i%2?330:390,h=105;
+    roundRect(ctx,x,y,w,h,28);ctx.fill();
+  }
+  ctx.restore();
+
+  // top chat bar
+  ctx.fillStyle='#090c12';ctx.fillRect(0,86,W,86);
+  drawAvatar(ctx,24,101,56);
+  ctx.fillStyle='#fff';ctx.textAlign='left';ctx.font='bold 25px Arial';ctx.fillText($('name').value||'MuizTzy',94,131);
+  ctx.fillStyle='#8f9aa8';ctx.font='17px Arial';ctx.fillText('online',94,154);
+  ctx.textAlign='right';ctx.font='30px Arial';ctx.fillText('⌕  ⋮',850,140);
+
+  // message bubble
+  const bx=25,by=625,bw=665,bh=150;
+  ctx.fillStyle='#263039';roundRect(ctx,bx,by,bw,bh,30);ctx.fill();
+  ctx.fillStyle='#f5f7fa';ctx.textAlign='left';ctx.font='29px Arial';
+  const lines=wrapText(ctx,$('msg').value||'',bx+25,by+52,bw-90,38);
+  ctx.fillStyle='#aeb8c3';ctx.font='18px Arial';ctx.textAlign='right';ctx.fillText($('time').value||'19:23',bx+bw-22,by+bh-20);
+
+  // reaction bar
+  const rx=15,ry=465,rw=660,rh=105;
+  ctx.fillStyle='#333a42';roundRect(ctx,rx,ry,rw,rh,52);ctx.fill();
+  ctx.font='58px "Apple Color Emoji","Segoe UI Emoji",Arial';ctx.textAlign='center';
+  ['👍','❤️','😂','😮','😢','🙏'].forEach((e,i)=>ctx.fillText(e,80+i*105,ry+69));
+
+  // context menu
+  const mx=18,my=790,mw=640,mh=700;
+  ctx.fillStyle='rgba(36,44,50,.97)';roundRect(ctx,mx,my,mw,mh,22);ctx.fill();
+  const items=[
+    ['Beri Bintang','☆'],['Balas','↶'],['Teruskan','↗'],['Salin','▢'],
+    ['Ucapkan','▱'],['Laporkan','△'],['Hapus','▥']
+  ];
+  const rowH=mh/items.length;
+  items.forEach((it,i)=>{
+    if(i) {ctx.strokeStyle='#4c555d';ctx.lineWidth=1;ctx.beginPath();ctx.moveTo(mx,my+i*rowH);ctx.lineTo(mx+mw,my+i*rowH);ctx.stroke()}
+    ctx.textAlign='left';ctx.font='29px Arial';ctx.fillStyle=i===6?'#ff6748':'#f6f7f9';ctx.fillText(it[0],mx+28,my+i*rowH+47);
+    ctx.textAlign='center';ctx.font='40px Arial';ctx.fillText(it[1],mx+mw-55,my+i*rowH+49);
+  });
+}
+$('makeIqc').onclick=drawIQC;
+$('downloadIqc').onclick=()=>{
+  drawIQC();
+  const a=document.createElement('a');a.download='IQC-MuizTzy.png';a.href=iqc.toDataURL('image/png');a.click();
+};
+
+const bc=$('bratCanvas'),bctx=bc.getContext('2d');
+function drawBrat(){
+  const W=bc.width,H=bc.height;bctx.clearRect(0,0,W,H);
+  bctx.fillStyle='#f4f3ed';bctx.fillRect(0,0,W,H);
+  bctx.save();bctx.translate(W/2,H/2);bctx.rotate((+$('bratRotate').value||0)*Math.PI/180);
+  bctx.fillStyle=$('bratColor').value;
+  bctx.font=`${+$('bratSize').value||70}px Arial`;
+  bctx.textAlign='center';bctx.textBaseline='middle';
+  const text=$('bratText').value||'brat';
+  const max=880; const words=text.split(/\s+/);let lines=[''];
+  words.forEach(w=>{
+    const test=lines[lines.length-1]?lines[lines.length-1]+' '+w:w;
+    if(bctx.measureText(test).width>max&&lines[lines.length-1])lines.push(w);else lines[lines.length-1]=test;
+  });
+  const lh=(+$('bratSize').value||70)*1.08;
+  lines.forEach((l,i)=>bctx.fillText(l,0,(i-(lines.length-1)/2)*lh));
+  bctx.restore();
+}
+$('makeBrat').onclick=drawBrat;
+$('downloadBrat').onclick=()=>{drawBrat();const a=document.createElement('a');a.download='BRAT-sticker.png';a.href=bc.toDataURL('image/png');a.click()};
+
+$('tabIqc').onclick=()=>{ $('iqc').classList.remove('hidden');$('brat').classList.add('hidden');$('tabIqc').classList.add('active');$('tabBrat').classList.remove('active')};
+$('tabBrat').onclick=()=>{ $('brat').classList.remove('hidden');$('iqc').classList.add('hidden');$('tabBrat').classList.add('active');$('tabIqc').classList.remove('active')};
+
+drawIQC();drawBrat();
 </script>
 </body>
-</html>w
+</html>
