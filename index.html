@@ -5,207 +5,93 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>MuizTzy - Web to APK</title>
   <style>
-    body {
-      background: #000;
-      color: white;
-      font-family: sans-serif;
-      margin: 0;
-      padding: 0;
-      display: flex;
-      justify-content: center;
-    }
-   .hp {
-      width: 100%;
-      max-width: 400px;
-      min-height: 100vh;
-      background: radial-gradient(circle at top, #0a4cff 0%, #000 60%);
-      padding: 20px;
-    }
-    /* HEADER ANIME */
-   .anime-box {
-      background: rgba(255,255,255,0.08);
-      border: 1px solid rgba(0,132,255,0.3);
-      border-radius: 24px;
-      padding: 15px;
-      display: flex;
-      align-items: center;
-      gap: 15px;
-    }
-   .anime-box img {
-      width: 80px;
-      height: 80px;
-      border-radius: 18px;
-      border: 2px solid #0a84ff;
-      box-shadow: 0 0 15px #0a84ff;
-      object-fit: cover;
-    }
-    h1 { font-size: 18px; margin: 0; }
-    p { font-size: 12px; color: #8aa0c0; }
-
-    /* FORM */
-   .card {
-      background: rgba(255,255,255,0.07);
-      border: 1px solid rgba(255,255,255,0.1);
-      border-radius: 20px;
-      padding: 18px;
-      margin-top: 20px;
-    }
-   .judul {
-      font-size: 11px;
-      color: #3d8bff;
-      font-weight: bold;
-      margin-bottom: 8px;
-      letter-spacing: 1px;
-    }
-    input {
-      width: 100%;
-      background: #111;
-      border: 1px solid #244a8a;
-      border-radius: 12px;
-      padding: 13px;
-      color: white;
-      outline: none;
-      margin-bottom: 15px;
-      box-sizing: border-box;
-    }
-    input:focus { border-color: #0a84ff; }
-
-    /* UPLOAD ICON */
-   .upload-icon {
-      border: 2px dashed #2a5bb5;
-      background: rgba(10,132,255,0.08);
-      border-radius: 15px;
-      padding: 20px;
-      text-align: center;
-      cursor: pointer;
-    }
-   .upload-icon img {
-      width: 60px;
-      height: 60px;
-      border-radius: 12px;
-      display: none;
-      margin: 0 auto 10px;
-    }
-
-    /* TOMBOL */
-   .btn-buat {
-      width: 100%;
-      background: linear-gradient(to bottom, #0a84ff, #004ec2);
-      border: none;
-      color: white;
-      padding: 15px;
-      border-radius: 14px;
-      font-weight: bold;
-      font-size: 15px;
-      margin-top: 15px;
-      box-shadow: 0 5px 20px rgba(10,132,255,0.5);
-      cursor: pointer;
-    }
-   .btn-download {
-      width: 100%;
-      background: linear-gradient(to bottom, #00d084, #008a55);
-      border: none;
-      color: white;
-      padding: 15px;
-      border-radius: 14px;
-      font-weight: bold;
-      margin-top: 15px;
-      cursor: pointer;
-    }
-
-    /* HASIL */
-    #hasil {
-      display: none;
-      background: rgba(0,255,100,0.08);
-      border: 1px solid rgba(0,255,100,0.3);
-      border-radius: 18px;
-      padding: 15px;
-      margin-top: 20px;
-      text-align: center;
-    }
+    body { background:#000; color:white; font-family:sans-serif; margin:0; padding:0; display:flex; justify-content:center; }
+ .hp { width:100%; max-width:400px; min-height:100vh; background:radial-gradient(circle at top, #0a4cff 0%, #000 60%); padding:20px; padding-bottom:120px; }
+ .anime-box { background:rgba(255,255,255,0.08); border:1px solid rgba(0,132,255,0.3); border-radius:24px; padding:15px; display:flex; align-items:center; gap:15px; position:relative; overflow:hidden; }
+ .anime-box::after{content:'';position:absolute;width:150px;height:150px;background:#0a84ff;filter:blur(60px);opacity:.25;right:-20px;top:-20px}
+ .anime-box img { width:80px; height:80px; border-radius:18px; border:2px solid #0a84ff; box-shadow:0 0 15px #0a84ff; object-fit:cover; z-index:1; }
+    h1 { font-size:18px; margin:0; z-index:1; }
+    p { font-size:12px; color:#8aa0c0; z-index:1; }
+ .card { background:rgba(255,255,255,0.07); border:1px solid rgba(255,255,255,0.1); border-radius:20px; padding:18px; margin-top:20px; }
+ .judul { font-size:11px; color:#3d8bff; font-weight:bold; margin-bottom:8px; letter-spacing:1px; }
+    input { width:100%; background:#111; border:1px solid #244a8a; border-radius:12px; padding:13px; color:white; outline:none; margin-bottom:15px; box-sizing:border-box; }
+    input:focus { border-color:#0a84ff; }
+ .upload-icon { border:2px dashed #2a5bb5; background:rgba(10,132,255,0.08); border-radius:15px; padding:20px; text-align:center; cursor:pointer; }
+ .upload-icon img { width:60px; height:60px; border-radius:12px; display:none; margin:0 auto 10px; }
+ .btn-buat { width:100%; background:linear-gradient(to bottom, #0a84ff, #004ec2); border:none; color:white; padding:15px; border-radius:14px; font-weight:bold; font-size:15px; margin-top:15px; box-shadow:0 5px 20px rgba(10,132,255,0.5); cursor:pointer; }
+ .btn-download { width:100%; background:linear-gradient(to bottom, #00d084, #008a55); border:none; color:white; padding:15px; border-radius:14px; font-weight:bold; margin-top:15px; cursor:pointer; }
+    #hasil { display:none; background:rgba(0,255,100,0.08); border:1px solid rgba(0,255,100,0.3); border-radius:18px; padding:15px; margin-top:20px; text-align:center; }
   </style>
 </head>
 <body>
-
 <div class="hp">
 
-  <!-- 1. HEADER ANIME -->
   <div class="anime-box">
-    <img src="https://i.pinimg.com/originals/f5/05/24/f50524ee5f161f437400a64e3a4ad4b9.jpg" alt="anime">
+    <img id="animeHero" src="https://i.pinimg.com/originals/f5/05/24/f50524ee5f161f437400a64e3a4ad4b9.jpg" alt="anime">
     <div>
       <h1>Web to APK Builder</h1>
       <p>MuizTzy • iOS 26 Edition<br>Ready to build v2.1.0</p>
     </div>
   </div>
 
-  <!-- 2. FORM INPUT -->
   <div class="card">
-
     <div class="judul">🔗 LINK WEBSITE</div>
     <input type="text" id="linkWeb" placeholder="https://tokosaya.com">
-
     <div class="judul">📱 NAMA APK</div>
     <input type="text" id="namaApk" placeholder="Contoh: Toko Saya">
-
     <div class="judul">🖼️ IKON APK</div>
     <div class="upload-icon" onclick="document.getElementById('fileIcon').click()">
       <input type="file" id="fileIcon" accept="image/*" hidden>
       <img id="previewIcon">
-      <div id="teksUpload">
-        📤 Tap untuk upload<br>
-        <small>PNG 512x512 disarankan</small>
-      </div>
+      <div id="teksUpload">📤 Tap untuk upload<br><small>PNG 512x512 disarankan</small></div>
     </div>
-
     <button class="btn-buat" onclick="prosesApk()">🔨 Buat APK Sekarang</button>
   </div>
 
-  <!-- 3. AREA HASIL / DOWNLOAD -->
   <div id="hasil">
-    <div style="font-size: 40px;">✅</div>
+    <div style="font-size:40px;">✅</div>
     <h3 id="namaHasil">MyApp.apk</h3>
-    <p id="linkHasil" style="font-size: 12px; word-break: break-all;"></p>
-    <button class="btn-download" onclick="alert('Untuk jadi APK beneran, upload config ini ke appsgeyser.com')">
-      📥 Download APK
-    </button>
+    <p id="linkHasil" style="font-size:12px;word-break:break-all;"></p>
+    <button class="btn-download" onclick="alert('Untuk jadi APK beneran, upload config ini ke appsgeyser.com')">📥 Download APK</button>
   </div>
 
 </div>
 
+<!-- LAGU SPOTIFY SUDAH SAMBUNG - TRACK 0vLsIOG4XfGMnct5nKtdIv -->
+<div style="position:fixed; bottom:12px; left:50%; transform:translateX(-50%); width:92%; max-width:380px; background:#000; border:1px solid #0a84ff; border-radius:16px; overflow:hidden; z-index:999; box-shadow:0 0 30px rgba(10,132,255,0.6)">
+  <iframe style="border-radius:12px"
+    src="https://open.spotify.com/embed/track/0vLsIOG4XfGMnct5nKtdIv?utm_source=generator&theme=0"
+    width="100%" height="88" frameBorder="0"
+    allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"
+    loading="lazy"></iframe>
+</div>
+
 <script>
-  // Preview Icon
   const fileIcon = document.getElementById('fileIcon');
   const previewIcon = document.getElementById('previewIcon');
   const teksUpload = document.getElementById('teksUpload');
+  const animeHero = document.getElementById('animeHero');
 
   fileIcon.addEventListener('change', function() {
     const file = this.files[0];
     if (file) {
-      previewIcon.src = URL.createObjectURL(file);
+      const url = URL.createObjectURL(file);
+      previewIcon.src = url;
       previewIcon.style.display = 'block';
+      animeHero.src = url;
       teksUpload.innerHTML = '✔ ' + file.name;
     }
   });
 
-  // Proses Buat APK
   function prosesApk() {
     const link = document.getElementById('linkWeb').value;
     const nama = document.getElementById('namaApk').value;
-
-    if (link == '') {
-      alert('Isi link website dulu bos!');
-      return;
-    }
-
+    if (link == '') { alert('Isi link website dulu bos!'); return; }
     document.getElementById('hasil').style.display = 'block';
     document.getElementById('namaHasil').innerText = (nama || 'MyApp') + '.apk';
     document.getElementById('linkHasil').innerText = link;
-
-    // scroll ke bawah
-    document.getElementById('hasil').scrollIntoView({behavior: 'smooth'});
+    document.getElementById('hasil').scrollIntoView({behavior:'smooth'});
   }
 </script>
-
-</div>
 </body>
 </html>
