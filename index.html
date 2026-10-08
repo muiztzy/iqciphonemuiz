@@ -3,64 +3,52 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>MuizTzy - Web to APK</title>
+<title>MuizTzy - All Tools Nexus Style</title>
 <style>
-body{background:#000;color:white;font-family:sans-serif;margin:0;padding:0;display:flex;justify-content:center}
-.hp{width:100%;max-width:400px;min-height:100vh;background:radial-gradient(circle at top, #0a4cff 0%, #000 60%);padding:20px;padding-bottom:180px}
-.anime-box{background:rgba(255,255,255,0.08);border:1px solid rgba(0,132,255,0.3);border-radius:24px;padding:15px;display:flex;align-items:center;gap:15px;position:relative;overflow:hidden}
-.anime-box img,.anime-box video{width:80px;height:80px;min-width:80px;min-height:80px;border-radius:18px;border:2px solid #0a84ff;box-shadow:0 0 15px #0a84ff;object-fit:cover;object-position:center top;z-index:1}
-h1{font-size:18px;margin:0;z-index:1}p{font-size:12px;color:#8aa0c0;z-index:1}
-.card{background:rgba(255,255,255,0.07);border:1px solid rgba(255,255,255,0.1);border-radius:20px;padding:18px;margin-top:20px}
-.judul{font-size:11px;color:#3d8bff;font-weight:bold;margin-bottom:8px;letter-spacing:1px}
-input{width:100%;background:#111;border:1px solid #244a8a;border-radius:12px;padding:13px;color:white;outline:none;margin-bottom:15px;box-sizing:border-box}
-.upload-icon{border:2px dashed #2a5bb5;background:rgba(10,132,255,0.08);border-radius:15px;padding:20px;text-align:center;cursor:pointer}
-.upload-icon img{width:60px;height:60px;border-radius:12px;display:none;margin:0 auto 10px}
-.btn-buat{width:100%;background:linear-gradient(to bottom, #0a84ff, #004ec2);border:none;color:white;padding:15px;border-radius:14px;font-weight:bold;font-size:15px;margin-top:15px;box-shadow:0 5px 20px rgba(10,132,255,0.5);cursor:pointer}
-#hasil{display:none;background:rgba(0,255,100,0.08);border:1px solid rgba(0,255,100,0.3);border-radius:18px;padding:15px;margin-top:20px;text-align:center}
-.player{position:fixed;bottom:10px;left:50%;transform:translateX(-50%);width:94%;max-width:380px;background:rgba(10,20,40,0.97);border:1px solid #0a84ff;border-radius:20px;padding:12px;z-index:999;backdrop-filter:blur(15px);box-shadow:0 0 30px rgba(10,132,255,0.6)}
+body{background:#0a0a0a;color:white;font-family:sans-serif;margin:0;padding:0;display:flex;justify-content:center}
+.hp{width:100%;max-width:400px;min-height:100vh;background:#0a0a0a;padding:0;padding-bottom:180px}
+.banner-video{position:relative;width:100%;height:220px;overflow:hidden;border-radius:0 0 24px 24px}
+.banner-video video{width:100%;height:100%;object-fit:cover;object-position:center top}
+.banner-overlay{position:absolute;inset:0;background:linear-gradient(to bottom, rgba(0,0,0,0.2) 0%, rgba(0,0,0,0.8) 85%);}
+.banner-text{position:absolute;bottom:15px;left:15px;right:15px;z-index:2}
+.banner-text h1{color:#ff3b3b;text-shadow:0 0 15px #ff0000;font-size:22px;margin:0;letter-spacing:1px}
+.content{padding:15px}
+.card{background:rgba(255,255,255,0.07);border:1px solid rgba(255,255,255,0.1);border-radius:20px;padding:18px;margin-top:15px}
+input{width:100%;background:#111;border:1px solid #333;border-radius:12px;padding:13px;color:white;box-sizing:border-box;margin-bottom:12px}
+.btn-buat{width:100%;background:linear-gradient(to bottom, #ff3b3b, #8b0000);border:none;color:white;padding:15px;border-radius:14px;font-weight:bold;box-shadow:0 5px 20px rgba(255,0,0,0.4)}
+.player{position:fixed;bottom:10px;left:50%;transform:translateX(-50%);width:94%;max-width:380px;background:rgba(20,10,10,0.97);border:1px solid #ff3b3b;border-radius:20px;padding:12px;z-index:999}
 </style>
 </head>
 <body>
 <div class="hp">
-  <div class="anime-box">
-    <!-- VIDEO SASUKE 736x414 TAPI TAMPIL 80x80 BIAR GAK KOTAK -->
-    <video id="animeHero" autoplay loop muted playsinline poster="anime_sasuke.jpg">
+  <!-- INI YANG KAYA CONTOH LU - VIDEO ANIME GEDE DI ATAS -->
+  <div class="banner-video">
+    <video autoplay loop muted playsinline poster="anime_sasuke.jpg">
       <source src="sasuke_736x414.mp4" type="video/mp4">
+      <source src="https://cdn.pixabay.com/video/2020/07/30/45683-444081635_large.mp4" type="video/mp4">
     </video>
-    <div><h1>Web to APK Builder</h1><p>MuizTzy • iOS 26 Edition<br>Ready to build v2.1.0</p></div>
+    <div class="banner-overlay"></div>
+    <div class="banner-text">
+      <h1>⚡ All Tools Nexus</h1>
+      <div style="font-size:11px;color:#aaa;margin-top:4px">MuizTzy • Tools Builder • Indonesia • Online</div>
+    </div>
   </div>
 
-  <div class="card">
-    <div class="judul">🔗 LINK WEBSITE</div>
-    <input type="text" id="linkWeb" placeholder="https://tokosaya.com">
-    <div class="judul">📱 NAMA APK</div>
-    <input type="text" id="namaApk" placeholder="Contoh: Toko Saya">
-    <div class="judul">🖼️ IKON APK</div>
-    <div class="upload-icon" onclick="document.getElementById('fileIcon').click()">
-      <input type="file" id="fileIcon" accept="image/*" hidden>
-      <img id="previewIcon"><div id="teksUpload">📤 Tap untuk upload<br><small>PNG 512x512 disarankan</small></div>
+  <div class="content">
+    <div class="card">
+      <div style="font-size:11px;color:#ff3b3b;font-weight:bold;margin-bottom:8px">🔗 LINK WEBSITE</div>
+      <input type="text" id="linkWeb" placeholder="https://tokosaya.com">
+      <div style="font-size:11px;color:#ff3b3b;font-weight:bold;margin-bottom:8px">📱 NAMA APK</div>
+      <input type="text" id="namaApk" placeholder="Toko Saya">
+      <button class="btn-buat" onclick="alert('APK '+ (document.getElementById('namaApk').value||'MyApp') +' dibuat!')">🔨 Buat APK Sekarang</button>
     </div>
-    <button class="btn-buat" onclick="prosesApk()">🔨 Buat APK Sekarang</button>
   </div>
-  <div id="hasil"><div style="font-size:40px;">✅</div><h3 id="namaHasil">MyApp.apk</h3><p id="linkHasil" style="font-size:12px;word-break:break-all;"></p></div>
 </div>
 
 <div class="player">
-  <div style="display:flex;gap:10px;align-items:center;margin-bottom:8px">
-    <video autoplay loop muted playsinline style="width:42px;height:42px;border-radius:10px;object-fit:cover"><source src="sasuke_736x414.mp4" type="video/mp4"></video>
-    <div style="flex:1"><div style="font-size:13px;font-weight:bold">Closed Doors - Sasuke 736x414</div><div style="font-size:11px;color:#8aa0c0">Ismail • Video + Audio Fix</div></div>
-    <button onclick="document.getElementById('musik').play()" style="background:#0a84ff;border:none;color:white;padding:6px 12px;border-radius:20px;font-weight:bold">▶️</button>
-  </div>
   <audio id="musik" controls style="width:100%;height:36px">
     <source src="https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview116/v4/f2/9e/1d/f29e1d92-f60e-fd34-d1d1-043f45a72fdb/mzaf_4270267093195874145.plus.aac.p.m4a" type="audio/mp4">
   </audio>
-  <iframe style="border-radius:12px;margin-top:8px" src="https://open.spotify.com/embed/track/0vLsIOG4XfGMnct5nKtdIv?utm_source=generator&theme=0" width="100%" height="80" frameBorder="0" allow="autoplay; clipboard-write; encrypted-media" loading="lazy"></iframe>
 </div>
-
-<script>
-const fileIcon=document.getElementById('fileIcon'),previewIcon=document.getElementById('previewIcon'),teksUpload=document.getElementById('teksUpload'),animeHero=document.getElementById('animeHero'),musik=document.getElementById('musik');
-fileIcon.addEventListener('change',function(){const f=this.files[0];if(f){const u=URL.createObjectURL(f);previewIcon.src=u;previewIcon.style.display='block';if(f.type.startsWith('video')){const v=document.createElement('video');v.src=u;v.autoplay=true;v.loop=true;v.muted=true;v.style.width='80px';v.style.height='80px';v.style.borderRadius='18px';animeHero.replaceWith(v);}else{animeHero.src=u;}teksUpload.innerHTML='✔ '+f.name;}});
-function prosesApk(){const l=document.getElementById('linkWeb').value,n=document.getElementById('namaApk').value;if(l==''){alert('Isi link dulu bos!');return;}document.getElementById('hasil').style.display='block';document.getElementById('namaHasil').innerText=(n||'MyApp')+'.apk';document.getElementById('linkHasil').innerText=l;musik.play().catch(()=>{});document.getElementById('hasil').scrollIntoView({behavior:'smooth'});}
-</script>
 </body>
 </html>
