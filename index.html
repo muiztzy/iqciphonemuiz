@@ -3,52 +3,127 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>MuizTzy - All Tools Nexus Style</title>
+<title>Web to APK - MuizTzy</title>
 <style>
-body{background:#0a0a0a;color:white;font-family:sans-serif;margin:0;padding:0;display:flex;justify-content:center}
-.hp{width:100%;max-width:400px;min-height:100vh;background:#0a0a0a;padding:0;padding-bottom:180px}
-.banner-video{position:relative;width:100%;height:220px;overflow:hidden;border-radius:0 0 24px 24px}
-.banner-video video{width:100%;height:100%;object-fit:cover;object-position:center top}
-.banner-overlay{position:absolute;inset:0;background:linear-gradient(to bottom, rgba(0,0,0,0.2) 0%, rgba(0,0,0,0.8) 85%);}
-.banner-text{position:absolute;bottom:15px;left:15px;right:15px;z-index:2}
-.banner-text h1{color:#ff3b3b;text-shadow:0 0 15px #ff0000;font-size:22px;margin:0;letter-spacing:1px}
-.content{padding:15px}
-.card{background:rgba(255,255,255,0.07);border:1px solid rgba(255,255,255,0.1);border-radius:20px;padding:18px;margin-top:15px}
-input{width:100%;background:#111;border:1px solid #333;border-radius:12px;padding:13px;color:white;box-sizing:border-box;margin-bottom:12px}
-.btn-buat{width:100%;background:linear-gradient(to bottom, #ff3b3b, #8b0000);border:none;color:white;padding:15px;border-radius:14px;font-weight:bold;box-shadow:0 5px 20px rgba(255,0,0,0.4)}
-.player{position:fixed;bottom:10px;left:50%;transform:translateX(-50%);width:94%;max-width:380px;background:rgba(20,10,10,0.97);border:1px solid #ff3b3b;border-radius:20px;padding:12px;z-index:999}
+*{box-sizing:border-box}
+body{background:#000;color:white;font-family:sans-serif;margin:0;padding:0;display:flex;justify-content:center}
+.hp{width:100%;max-width:420px;min-height:100vh;background:radial-gradient(circle at top, #0a4cff 0%, #000 70%);padding:0;padding-bottom:100px}
+.banner{position:relative;width:100%;height:210px;overflow:hidden}
+.banner video{width:100%;height:100%;object-fit:cover}
+.banner::after{content:'';position:absolute;inset:0;background:linear-gradient(to bottom, rgba(0,0,0,0.1), #000)}
+.banner-title{position:absolute;bottom:18px;left:18px;z-index:2}
+.banner-title h1{margin:0;font-size:22px;color:#fff;text-shadow:0 0 15px #0a84ff}
+.banner-title p{margin:2px 0 0 0;font-size:12px;color:#8aa0c0}
+.content{padding:18px}
+.anime-box{background:rgba(255,255,255,0.08);border:1px solid rgba(10,132,255,0.3);border-radius:20px;padding:12px;display:flex;align-items:center;gap:12px;margin-bottom:15px}
+.anime-box video,.anime-box img{width:80px;height:80px;min-width:80px;border-radius:16px;border:2px solid #0a84ff;object-fit:cover}
+.card{background:rgba(255,255,255,0.06);border:1px solid rgba(255,255,255,0.1);border-radius:20px;padding:18px}
+.judul{font-size:11px;color:#3d8bff;font-weight:bold;margin:12px 0 6px 0;letter-spacing:1px}
+.judul:first-child{margin-top:0}
+input{width:100%;background:#111;border:1px solid #244a8a;border-radius:12px;padding:13px;color:white;outline:none}
+input:focus{border-color:#0a84ff}
+.upload{border:2px dashed #2a5bb5;background:rgba(10,132,255,0.08);border-radius:14px;padding:16px;text-align:center;cursor:pointer;margin-top:6px}
+.upload img{width:70px;height:70px;border-radius:12px;display:none;margin:0 auto 8px;object-fit:cover}
+.btn{width:100%;background:linear-gradient(to bottom, #0a84ff, #004ec2);border:none;color:white;padding:15px;border-radius:14px;font-weight:bold;font-size:15px;margin-top:16px;box-shadow:0 5px 20px rgba(10,132,255,0.5);cursor:pointer}
+.btn:active{transform:scale(0.98)}
+#hasil{display:none;background:rgba(0,255,100,0.1);border:1px solid #00ff66;border-radius:16px;padding:16px;margin-top:16px;text-align:center}
 </style>
 </head>
 <body>
 <div class="hp">
-  <!-- INI YANG KAYA CONTOH LU - VIDEO ANIME GEDE DI ATAS -->
-  <div class="banner-video">
-    <video autoplay loop muted playsinline poster="anime_sasuke.jpg">
+  <!-- VIDEO ANIME GEDE KAYA CONTOH LU -->
+  <div class="banner">
+    <video autoplay loop muted playsinline>
       <source src="sasuke_736x414.mp4" type="video/mp4">
       <source src="https://cdn.pixabay.com/video/2020/07/30/45683-444081635_large.mp4" type="video/mp4">
     </video>
-    <div class="banner-overlay"></div>
-    <div class="banner-text">
-      <h1>⚡ All Tools Nexus</h1>
-      <div style="font-size:11px;color:#aaa;margin-top:4px">MuizTzy • Tools Builder • Indonesia • Online</div>
+    <div class="banner-title">
+      <h1>Web to APK Builder</h1>
+      <p>MuizTzy • iOS 26 Edition • Ready v2.1</p>
     </div>
   </div>
 
   <div class="content">
+    <!-- IKON KECIL 80x80 JUGA ADA VIDEO -->
+    <div class="anime-box">
+      <video autoplay loop muted playsinline id="animeMini">
+        <source src="sasuke_736x414.mp4" type="video/mp4">
+      </video>
+      <div><b style="font-size:15px">MuizTzy Builder</b><br><small style="color:#8aa0c0">Video Anime 736x414 • Fix Upload</small></div>
+    </div>
+
     <div class="card">
-      <div style="font-size:11px;color:#ff3b3b;font-weight:bold;margin-bottom:8px">🔗 LINK WEBSITE</div>
+      <div class="judul">🔗 LINK WEBSITE</div>
       <input type="text" id="linkWeb" placeholder="https://tokosaya.com">
-      <div style="font-size:11px;color:#ff3b3b;font-weight:bold;margin-bottom:8px">📱 NAMA APK</div>
-      <input type="text" id="namaApk" placeholder="Toko Saya">
-      <button class="btn-buat" onclick="alert('APK '+ (document.getElementById('namaApk').value||'MyApp') +' dibuat!')">🔨 Buat APK Sekarang</button>
+
+      <div class="judul">📱 NAMA APK</div>
+      <input type="text" id="namaApk" placeholder="Contoh: Toko Saya">
+
+      <div class="judul">🖼️ IKON APK - BISA PILIH FOTO</div>
+      <div class="upload" onclick="document.getElementById('fileIcon').click()">
+        <input type="file" id="fileIcon" accept="image/*" hidden>
+        <img id="previewIcon">
+        <div id="teksUpload">📤 Tap untuk pilih foto<br><small>PNG 512x512 disarankan</small></div>
+      </div>
+
+      <button class="btn" onclick="buatApk()">🔨 Buat APK Sekarang</button>
+
+      <div id="hasil">
+        <div style="font-size:40px">✅</div>
+        <h3 id="namaHasil" style="margin:8px 0">MyApp.apk</h3>
+        <p id="linkHasil" style="font-size:11px;word-break:break-all;color:#8f8"></p>
+        <button class="btn" style="background:#00c853" onclick="downloadApk()">⬇️ Download APK</button>
+      </div>
     </div>
   </div>
 </div>
 
-<div class="player">
-  <audio id="musik" controls style="width:100%;height:36px">
-    <source src="https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview116/v4/f2/9e/1d/f29e1d92-f60e-fd34-d1d1-043f45a72fdb/mzaf_4270267093195874145.plus.aac.p.m4a" type="audio/mp4">
-  </audio>
-</div>
+<script>
+const fileInput = document.getElementById('fileIcon');
+const preview = document.getElementById('previewIcon');
+const teks = document.getElementById('teksUpload');
+const mini = document.getElementById('animeMini');
+
+fileInput.addEventListener('change', function(){
+  const file = this.files[0];
+  if(!file) return;
+  const url = URL.createObjectURL(file);
+  preview.src = url;
+  preview.style.display = 'block';
+  teks.innerHTML = '✔ ' + file.name;
+  // ganti video mini jadi foto yang lu pilih
+  const img = document.createElement('img');
+  img.src = url;
+  img.style.width='80px'; img.style.height='80px'; img.style.borderRadius='16px';
+  img.style.border='2px solid #0a84ff'; img.style.objectFit='cover';
+  mini.replaceWith(img);
+});
+
+function buatApk(){
+  const link = document.getElementById('linkWeb').value.trim();
+  const nama = document.getElementById('namaApk').value.trim() || 'MyApp';
+  if(!link){ alert('Isi link website dulu bos!'); return; }
+  if(!link.startsWith('http')){ alert('Link harus pakai https://'); return; }
+  document.getElementById('hasil').style.display='block';
+  document.getElementById('namaHasil').innerText = nama + '.apk';
+  document.getElementById('linkHasil').innerText = 'Web: ' + link;
+  // simpan buat download
+  localStorage.setItem('apk_link', link);
+  localStorage.setItem('apk_nama', nama);
+  document.getElementById('hasil').scrollIntoView({behavior:'smooth'});
+}
+
+function downloadApk(){
+  const link = localStorage.getItem('apk_link');
+  const nama = localStorage.getItem('apk_nama') || 'MyApp';
+  // untuk sekarang bikin file txt sebagai simulasi, nanti bisa sambung ke backend builder asli
+  const blob = new Blob([`APK Builder MuizTzy\nNama: ${nama}\nLink: ${link}\nIcon: ${fileInput.files[0]?.name||'default'}\n\nIni simulasi, sambungkan ke AppsGeyser / WebViewGold API untuk APK asli.`], {type:'text/plain'});
+  const a = document.createElement('a');
+  a.href = URL.createObjectURL(blob);
+  a.download = nama + '.txt';
+  a.click();
+  alert('File info APK didownload! Untuk APK asli, hubungkan ke API WebView. Web lu udah fix bisa pilih foto + video anime!');
+}
+</script>
 </body>
 </html>
