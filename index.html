@@ -1,98 +1,49 @@
 <!DOCTYPE html>
 <html lang="id">
-<head>
-<meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1">
 <title>Web to APK - MuizTzy</title>
-<style>
-body{margin:0;background:#000;color:#fff;font-family:sans-serif;display:flex;justify-content:center}
-.hp{width:100%;max-width:420px;background:#000;min-height:100vh;padding-bottom:140px}
-.banner{position:relative;width:100%;height:240px;overflow:hidden;border-radius:0 0 24px 24px}
-.banner video{width:100%;height:100%;object-fit:cover}
-.banner:after{content:'';position:absolute;inset:0;background:linear-gradient(to bottom,rgba(0,0,0,0.1),#000 90%)}
-.banner-title{position:absolute;bottom:16px;left:16px;z-index:2}
-.box{display:flex;gap:12px;align-items:center;margin:14px;padding:12px;background:#0a1428;border:1px solid #0a84ff55;border-radius:16px}
-.box img{width:80px;height:80px;border-radius:14px;border:2px solid #0a84ff;object-fit:cover}
-.card{margin:14px;background:#111;border:1px solid #222;border-radius:18px;padding:16px}
-input{width:100%;background:#000;border:1px solid #333;border-radius:10px;padding:12px;color:#fff;margin:6px 0 12px 0}
-.upload{border:2px dashed #0a84ff66;background:#0a84ff14;border-radius:12px;padding:14px;text-align:center;cursor:pointer}
-.upload img{width:80px;height:80px;border-radius:10px;display:none;margin:0 auto 8px;object-fit:cover}
-.btn{width:100%;background:#0a84ff;border:none;color:#fff;padding:14px;border-radius:12px;font-weight:bold;margin-top:10px}
-.player{position:fixed;bottom:10px;left:50%;transform:translateX(-50%);width:94%;max-width:400px;background:#0a1428ee;border:1px solid #0a84ff;border-radius:16px;padding:10px;z-index:999}
-#hasil{display:none;background:#0a2a0a;border:1px solid #0f0;border-radius:12px;padding:12px;margin-top:12px;text-align:center}
-</style>
+<style>body{margin:0;background:#000;color:#fff;font-family:sans-serif;display:flex;justify-content:center}.hp{width:100%;max-width:420px;background:#000;min-height:100vh;padding-bottom:150px}.banner{position:relative;height:240px;overflow:hidden;border-radius:0 0 24px 24px;background:#000}.banner video,.banner img{width:100%;height:100%;object-fit:cover;position:absolute;inset:0}.banner:after{content:'';position:absolute;inset:0;background:linear-gradient(to bottom,transparent,#000 90%)}.title{position:absolute;bottom:16px;left:16px;z-index:5}.card{margin:14px;background:#111;border:1px solid #222;border-radius:18px;padding:16px}input{width:100%;background:#000;border:1px solid #333;border-radius:10px;padding:12px;color:#fff;margin:6px 0 12px 0}.upload{border:2px dashed #0a84ff66;background:#0a84ff14;border-radius:12px;padding:14px;text-align:center}.upload img{width:80px;height:80px;border-radius:10px;display:none;margin:0 auto 8px}.btn{width:100%;background:#0a84ff;border:none;color:#fff;padding:14px;border-radius:12px;font-weight:bold;margin-top:10px}.player{position:fixed;bottom:10px;left:50%;transform:translateX(-50%);width:94%;max-width:400px;background:#0a1428ee;border:1px solid #0a84ff;border-radius:16px;padding:10px;z-index:999}#hasil{display:none;background:#0a2a0a;border:1px solid #0f0;border-radius:12px;padding:12px;margin-top:12px;text-align:center}</style>
 </head>
 <body>
 <div class="hp">
-  <!-- VIDEO ANIME GEDE - PASTI MUNCUL -->
+  <!-- BANNER VIDEO ANIME - PASTI MUNCUL KARENA ADA POSTER JPG -->
   <div class="banner">
-    <video autoplay loop muted playsinline poster="">
+    <img src="anime_banner.jpg" style="position:absolute;inset:0">
+    <video autoplay loop muted playsinline poster="anime_banner.jpg">
       <source src="anime_banner.mp4" type="video/mp4">
-      <!-- kalau file belum upload, pakai fallback CDN biar tetap muncul -->
       <source src="https://cdn.pixabay.com/video/2020/07/30/45683-444081635_large.mp4" type="video/mp4">
     </video>
-    <div class="banner-title">
-      <h2 style="margin:0;color:#fff;text-shadow:0 0 10px #0a84ff">Web to APK Builder</h2>
-      <small style="color:#8ac0ff">MuizTzy • iOS 26 Edition • Ready v2.1</small>
-    </div>
+    <div class="title"><h2 style="margin:0">Web to APK Builder</h2><small style="color:#8ac0ff">MuizTzy • iOS 26 Edition • Ready v2.1</small></div>
   </div>
 
-  <div class="box">
-    <img id="miniIcon" src="https://i.imgur.com/8Km9tLL.png">
-    <div><b>MuizTzy Builder</b><br><small style="color:#8aa0c0">Video Anime 736x414 • Fix</small></div>
+  <div style="text-align:center; margin:18px 0;">
+    <img id="mainIcon" src="anime_banner.jpg" style="width:90px;height:90px;border-radius:20px;border:2px solid #0a84ff;box-shadow:0 0 20px #0a84ff;object-fit:cover;object-position:top">
+    <div style="margin-top:8px"><b>MuizTzy Builder</b><br><small style="color:#8aa0c0">Video Anime 736x414 • Fix</small></div>
   </div>
 
   <div class="card">
-    🔗 LINK WEBSITE
-    <input id="linkWeb" placeholder="https://tokosaya.com">
-    📱 NAMA APK
-    <input id="namaApk" placeholder="Toko Saya">
-    🖼️ IKON APK - BISA PILIH FOTO
-    <div class="upload" onclick="fileIcon.click()">
-      <input type="file" id="fileIcon" accept="image/*" hidden>
-      <img id="previewIcon">
-      <div id="teksUpload">📤 Tap untuk pilih foto<br><small>PNG 512x512 disarankan</small></div>
-    </div>
+    🔗 LINK WEBSITE<input id="linkWeb" placeholder="https://tokosaya.com">
+     NAMA APK<input id="namaApk" placeholder="Toko Saya">
+     IKON APK - BISA PILIH FOTO
+    <div class="upload" onclick="fileIcon.click()"><input type="file" id="fileIcon" accept="image/*" hidden><img id="previewIcon"><div id="teksUpload">📤 Tap untuk pilih foto</div></div>
     <button class="btn" onclick="buatApk()">🔨 Buat APK Sekarang</button>
-    <div id="hasil">
-      <h3 id="namaHasil"></h3>
-      <p id="linkHasil" style="font-size:11px;word-break:break-all"></p>
-      <button class="btn" style="background:#00c853" onclick="alert('Download APK: '+(namaApk.value||'MyApp'))">⬇️ Download</button>
-    </div>
+    <div id="hasil"><h3 id="namaHasil"></h3><p id="linkHasil" style="font-size:11px;word-break:break-all"></p></div>
   </div>
 </div>
 
-<!-- LAGU CLOSED DOORS - PLAYER FIX DI BAWAH -->
 <div class="player">
   <div style="display:flex;gap:8px;align-items:center;margin-bottom:6px">
-    <div style="width:36px;height:36px;background:#0a84ff;border-radius:8px;display:flex;align-items:center;justify-content:center">🎵</div>
+    <img src="anime_banner.jpg" style="width:36px;height:36px;border-radius:8px;object-fit:cover">
     <div style="flex:1"><b style="font-size:12px">Closed Doors - Ismail</b><br><small style="font-size:10px;color:#8aa0c0">MuizTzy Player</small></div>
-    <button onclick="musik.play()" style="background:#0a84ff;border:none;color:#fff;padding:6px 12px;border-radius:20px">▶️</button>
+    <button onclick="document.getElementById('musik').play()" style="background:#0a84ff;border:none;color:#fff;padding:6px 12px;border-radius:20px">▶️</button>
   </div>
-  <audio id="musik" controls style="width:100%;height:32px">
-    <source src="https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview116/v4/f2/9e/1d/f29e1d92-f60e-fd34-d1d1-043f45a72fdb/mzaf_4270267093195874145.plus.aac.p.m4a" type="audio/mp4">
-  </audio>
+  <audio id="musik" controls style="width:100%;height:32px"><source src="https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview116/v4/f2/9e/1d/f29e1d92-f60e-fd34-d1d1-043f45a72fdb/mzaf_4270267093195874145.plus.aac.p.m4a" type="audio/mp4"></audio>
 </div>
 
 <script>
-const fileIcon=document.getElementById('fileIcon'),previewIcon=document.getElementById('previewIcon'),teksUpload=document.getElementById('teksUpload'),miniIcon=document.getElementById('miniIcon'),musik=document.getElementById('musik');
-fileIcon.addEventListener('change',function(){
-  const f=this.files[0]; if(!f) return;
-  const u=URL.createObjectURL(f);
-  previewIcon.src=u; previewIcon.style.display='block';
-  miniIcon.src=u;
-  teksUpload.innerHTML='✔ '+f.name;
-  musik.play().catch(()=>{});
-});
-function buatApk(){
-  const l=document.getElementById('linkWeb').value;
-  const n=document.getElementById('namaApk').value||'MyApp';
-  if(!l){alert('Isi link dulu bos!');return;}
-  document.getElementById('hasil').style.display='block';
-  document.getElementById('namaHasil').innerText=n+'.apk';
-  document.getElementById('linkHasil').innerText=l;
-  document.getElementById('hasil').scrollIntoView({behavior:'smooth'});
-  musik.play().catch(()=>{});
-}
+const fileIcon=document.getElementById('fileIcon'),previewIcon=document.getElementById('previewIcon'),teksUpload=document.getElementById('teksUpload'),mainIcon=document.getElementById('mainIcon');
+fileIcon.addEventListener('change',function(){const f=this.files[0];if(!f)return;const u=URL.createObjectURL(f);previewIcon.src=u;previewIcon.style.display='block';mainIcon.src=u;teksUpload.innerHTML='✔ '+f.name;});
+function buatApk(){const l=linkWeb.value.trim();const n=namaApk.value.trim()||'MyApp';if(!l){alert('Isi link dulu bos!');return;}hasil.style.display='block';namaHasil.innerText=n+'.apk';linkHasil.innerText=l;hasil.scrollIntoView({behavior:'smooth'});document.getElementById('musik').play().catch(()=>{});}
 </script>
 </body>
 </html>
