@@ -1,49 +1,143 @@
+
 <!DOCTYPE html>
 <html lang="id">
-<head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1">
-<title>Web to APK - MuizTzy</title>
-<style>body{margin:0;background:#000;color:#fff;font-family:sans-serif;display:flex;justify-content:center}.hp{width:100%;max-width:420px;background:#000;min-height:100vh;padding-bottom:150px}.banner{position:relative;height:240px;overflow:hidden;border-radius:0 0 24px 24px;background:#000}.banner video,.banner img{width:100%;height:100%;object-fit:cover;position:absolute;inset:0}.banner:after{content:'';position:absolute;inset:0;background:linear-gradient(to bottom,transparent,#000 90%)}.title{position:absolute;bottom:16px;left:16px;z-index:5}.card{margin:14px;background:#111;border:1px solid #222;border-radius:18px;padding:16px}input{width:100%;background:#000;border:1px solid #333;border-radius:10px;padding:12px;color:#fff;margin:6px 0 12px 0}.upload{border:2px dashed #0a84ff66;background:#0a84ff14;border-radius:12px;padding:14px;text-align:center}.upload img{width:80px;height:80px;border-radius:10px;display:none;margin:0 auto 8px}.btn{width:100%;background:#0a84ff;border:none;color:#fff;padding:14px;border-radius:12px;font-weight:bold;margin-top:10px}.player{position:fixed;bottom:10px;left:50%;transform:translateX(-50%);width:94%;max-width:400px;background:#0a1428ee;border:1px solid #0a84ff;border-radius:16px;padding:10px;z-index:999}#hasil{display:none;background:#0a2a0a;border:1px solid #0f0;border-radius:12px;padding:12px;margin-top:12px;text-align:center}</style>
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="theme-color" content="#050914">
+<title>IQC iPhone - MuizTzy</title>
+<style>
+*{box-sizing:border-box}
+body{margin:0;background:#050914;color:#fff;font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;padding:20px 15px}
+.app{max-width:460px;margin:auto}
+header{display:flex;align-items:center;gap:13px;padding:8px 0 24px}
+.logo{width:52px;height:52px;border-radius:17px;background:linear-gradient(135deg,#159bff,#2738d9);display:grid;place-items:center;font-size:26px}
+h1{font-size:21px;margin:0}
+.sub{font-size:11px;color:#91a4c1;margin-top:5px}
+.pill{display:inline-block;background:#102744;color:#59b4ff;padding:7px 11px;border-radius:20px;font-size:11px}
+h2{font-size:28px;margin:15px 0 8px}
+.desc{color:#94a5be;font-size:13px;line-height:1.7}
+.card{background:#0b1322;border:1px solid #24334a;border-radius:20px;padding:18px;margin-top:20px}
+label{display:block;font-size:13px;color:#c7d5e8;margin:17px 0 9px}
+input,select,textarea{width:100%;padding:13px;background:#060c18;color:white;border:1px solid #293953;border-radius:11px;font-size:14px;outline:none}
+textarea{resize:vertical;min-height:85px}
+.row{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+button{width:100%;border:0;border-radius:12px;padding:15px;margin-top:18px;background:linear-gradient(100deg,#087cff,#3049ed);color:white;font-weight:700;font-size:14px;cursor:pointer}
+button:disabled{opacity:.6}
+.preview{margin-top:22px;border-radius:25px;background:#dfe5ee;color:#111827;padding:12px;min-height:235px}
+.status{display:flex;justify-content:space-between;align-items:center;font-size:12px;font-weight:700}
+.carrier{font-size:10px;color:#172033;margin-top:5px}
+.chat{margin-top:55px;background:#fff;border-radius:16px;padding:15px;font-size:15px;line-height:1.5;overflow-wrap:anywhere}
+.chatTime{text-align:right;color:#6b7280;font-size:10px;margin-top:9px}
+#result{width:100%;display:none;margin-top:15px;border-radius:12px}
+.note{font-size:11px;color:#8799b4;line-height:1.6;margin-top:14px}
+footer{text-align:center;color:#64758e;font-size:11px;margin:24px 0}
+</style>
 </head>
 <body>
-<div class="hp">
-  <!-- BANNER VIDEO ANIME - PASTI MUNCUL KARENA ADA POSTER JPG -->
-  <div class="banner">
-    <img src="anime_banner.jpg" style="position:absolute;inset:0">
-    <video autoplay loop muted playsinline poster="anime_banner.jpg">
-      <source src="anime_banner.mp4" type="video/mp4">
-      <source src="https://cdn.pixabay.com/video/2020/07/30/45683-444081635_large.mp4" type="video/mp4">
-    </video>
-    <div class="title"><h2 style="margin:0">Web to APK Builder</h2><small style="color:#8ac0ff">MuizTzy • iOS 26 Edition • Ready v2.1</small></div>
-  </div>
+<main class="app">
+<header>
+ <div class="logo"></div>
+ <div><h1>IQC IPHONE</h1><div class="sub">FAKE CHAT GENERATOR · MUIZTZY</div></div>
+</header>
 
-  <div style="text-align:center; margin:18px 0;">
-    <img id="mainIcon" src="anime_banner.jpg" style="width:90px;height:90px;border-radius:20px;border:2px solid #0a84ff;box-shadow:0 0 20px #0a84ff;object-fit:cover;object-position:top">
-    <div style="margin-top:8px"><b>MuizTzy Builder</b><br><small style="color:#8aa0c0">Video Anime 736x414 • Fix</small></div>
-  </div>
+<span class="pill">● IPHONE STYLE</span>
+<h2>Create Your IQC</h2>
+<p class="desc">Buat gambar chat ala iPhone. Pilih operator, atur waktu, lalu generate dan unduh hasilnya.</p>
 
-  <div class="card">
-    🔗 LINK WEBSITE<input id="linkWeb" placeholder="https://tokosaya.com">
-     NAMA APK<input id="namaApk" placeholder="Toko Saya">
-     IKON APK - BISA PILIH FOTO
-    <div class="upload" onclick="fileIcon.click()"><input type="file" id="fileIcon" accept="image/*" hidden><img id="previewIcon"><div id="teksUpload">📤 Tap untuk pilih foto</div></div>
-    <button class="btn" onclick="buatApk()">🔨 Buat APK Sekarang</button>
-    <div id="hasil"><h3 id="namaHasil"></h3><p id="linkHasil" style="font-size:11px;word-break:break-all"></p></div>
-  </div>
-</div>
+<section class="card">
+ <label for="operator">Pilih Kartu / Operator</label>
+ <select id="operator">
+  <option value="TELKOMSEL">🔴 Telkomsel</option>
+  <option value="INDOSAT">🟡 Indosat / IM3</option>
+  <option value="XL">🔵 XL</option>
+  <option value="TRI">⚫ Tri (3)</option>
+  <option value="AXIS">🟣 AXIS</option>
+  <option value="SMARTFREN">🔴 Smartfren</option>
+  <option value="by.U">🔵 by.U</option>
+ </select>
 
-<div class="player">
-  <div style="display:flex;gap:8px;align-items:center;margin-bottom:6px">
-    <img src="anime_banner.jpg" style="width:36px;height:36px;border-radius:8px;object-fit:cover">
-    <div style="flex:1"><b style="font-size:12px">Closed Doors - Ismail</b><br><small style="font-size:10px;color:#8aa0c0">MuizTzy Player</small></div>
-    <button onclick="document.getElementById('musik').play()" style="background:#0a84ff;border:none;color:#fff;padding:6px 12px;border-radius:20px">▶️</button>
+ <label for="chatText">Teks Chat</label>
+ <textarea id="chatText">Test Buat Iphone Fake Chat 🤔🤔</textarea>
+
+ <div class="row">
+  <div><label for="chatTime">Jam Chat</label><input id="chatTime" type="time" value="21:55"></div>
+  <div><label for="statusTime">Jam iPhone</label><input id="statusTime" type="time" value="21:57"></div>
+ </div>
+
+ <button id="previewBtn">LIHAT PREVIEW</button>
+ <button id="generateBtn">GENERATE PNG</button>
+
+ <div class="preview" id="preview">
+  <div class="status">
+   <span id="clock">21:57</span>
+   <span>▂ ▄ ▆　 Wi-Fi　 ▰</span>
   </div>
-  <audio id="musik" controls style="width:100%;height:32px"><source src="https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview116/v4/f2/9e/1d/f29e1d92-f60e-fd34-d1d1-043f45a72fdb/mzaf_4270267093195874145.plus.aac.p.m4a" type="audio/mp4"></audio>
-</div>
+  <div class="carrier" id="carrier">TELKOMSEL · 4G</div>
+  <div class="chat" id="chatBubble"></div>
+  <div class="chatTime" id="chatClock">21:55</div>
+ </div>
+
+ <img id="result" alt="Hasil IQC">
+ <button id="downloadBtn" hidden>DOWNLOAD PNG</button>
+ <div class="note" id="message">Preview dapat digunakan langsung. Generate PNG memakai backend Node.js jika tersedia.</div>
+</section>
+<footer>IQC IPHONE · MUIZTZY</footer>
+</main>
 
 <script>
-const fileIcon=document.getElementById('fileIcon'),previewIcon=document.getElementById('previewIcon'),teksUpload=document.getElementById('teksUpload'),mainIcon=document.getElementById('mainIcon');
-fileIcon.addEventListener('change',function(){const f=this.files[0];if(!f)return;const u=URL.createObjectURL(f);previewIcon.src=u;previewIcon.style.display='block';mainIcon.src=u;teksUpload.innerHTML='✔ '+f.name;});
-function buatApk(){const l=linkWeb.value.trim();const n=namaApk.value.trim()||'MyApp';if(!l){alert('Isi link dulu bos!');return;}hasil.style.display='block';namaHasil.innerText=n+'.apk';linkHasil.innerText=l;hasil.scrollIntoView({behavior:'smooth'});document.getElementById('musik').play().catch(()=>{});}
+const $=id=>document.getElementById(id);
+function updatePreview(){
+ $('clock').textContent=$('statusTime').value||'21:57';
+ $('carrier').textContent=$('operator').value+' · 4G';
+ $('chatBubble').textContent=$('chatText').value||'Teks chat kamu';
+ $('chatClock').textContent=$('chatTime').value||'21:55';
+}
+['operator','chatText','chatTime','statusTime'].forEach(id=>{
+ $(id).addEventListener('input',updatePreview);
+ $(id).addEventListener('change',updatePreview);
+});
+updatePreview();
+
+$('previewBtn').onclick=()=>{
+ updatePreview();
+ $('message').textContent='Preview diperbarui. Untuk hasil PNG gunakan tombol Generate.';
+};
+
+let imageUrl;
+$('generateBtn').onclick=async()=>{
+ const btn=$('generateBtn');
+ btn.disabled=true;
+ $('message').textContent='Menghubungkan ke backend...';
+ try{
+  const response=await fetch('/generate',{
+   method:'POST',
+   headers:{'Content-Type':'application/json'},
+   body:JSON.stringify({
+    text:$('chatText').value,
+    chatTime:$('chatTime').value,
+    statusBarTime:$('statusTime').value,
+    operator:$('operator').value
+   })
+  });
+  if(!response.ok)throw new Error('Backend gagal atau belum aktif.');
+  const blob=await response.blob();
+  if(imageUrl)URL.revokeObjectURL(imageUrl);
+  imageUrl=URL.createObjectURL(blob);
+  $('result').src=imageUrl;
+  $('result').style.display='block';
+  $('downloadBtn').hidden=false;
+  $('message').textContent='PNG berhasil dibuat.';
+ }catch(e){
+  $('message').textContent='PNG belum tersedia: jalankan server.js dan pastikan generator backend mendukung operator.';
+ }finally{btn.disabled=false;}
+};
+
+$('downloadBtn').onclick=()=>{
+ if(!imageUrl)return;
+ const a=document.createElement('a');
+ a.href=imageUrl;a.download='iqc-iphone.png';a.click();
+};
 </script>
 </body>
 </html>
